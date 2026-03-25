@@ -11,10 +11,10 @@ readme = "README.md"
 license = {text = "MIT"}
 
 [project.scripts]
-weixin-login = "nonebot.adapters.weixin.login:main"
+wechatclaw-login = "nonebot.adapters.wechatclaw.login:main"
 
 [project.entry-points.nb_scripts]
-weixin-login = "nonebot.adapters.weixin.login:main"
+wechatclaw-login = "nonebot.adapters.wechatclaw.login:main"
 
 [build-system]
 requires = ["pdm-backend"]
@@ -42,7 +42,6 @@ extra_standard_library = ["typing_extensions"]
 [tool.ruff]
 line-length = 120
 target-version = "py310"
-extend-exclude = ["openclaw-weixin", "adapter-milky", "wechatbot.py"]
 
 [tool.ruff.lint]
 select = [

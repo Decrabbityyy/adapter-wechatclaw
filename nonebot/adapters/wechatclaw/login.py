@@ -146,10 +146,10 @@ def main() -> None:
     sys.stdout.write("\n" + "=" * 50 + "\n")
     sys.stdout.write("登录成功! 请将以下信息添加到 .env 文件:\n")
     sys.stdout.write("=" * 50 + "\n\n")
-    sys.stdout.write(f'WEIXIN_TOKEN="{result["bot_token"]}"\n')
-    sys.stdout.write(f'WEIXIN_ACCOUNT_ID="{result["account_id"]}"\n')
+    sys.stdout.write(f'WECHATCLAW_TOKEN="{result["bot_token"]}"\n')
+    sys.stdout.write(f'WECHATCLAW_ACCOUNT_ID="{result["account_id"]}"\n')
     if result.get("base_url"):
-        sys.stdout.write(f'WEIXIN_BASE_URL="{result["base_url"]}"\n')
+        sys.stdout.write(f'WECHATCLAW_BASE_URL="{result["base_url"]}"\n')
     if result.get("user_id"):
         sys.stdout.write(f"\n# 扫码用户 ID (可用于 allow_from 配置): {result['user_id']}\n")
     sys.stdout.write("\n")

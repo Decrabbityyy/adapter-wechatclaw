@@ -90,8 +90,8 @@ class Adapter(BaseAdapter):
     def _resolve_accounts(self) -> list[dict[str, Any]]:
         accounts: list[dict[str, Any]] = []
 
-        if self.weixin_config.weixin_accounts:
-            for acc in self.weixin_config.weixin_accounts:
+        if self.weixin_config.wechatclaw_accounts:
+            for acc in self.weixin_config.wechatclaw_accounts:
                 if not acc.enabled or not acc.token:
                     continue
                 accounts.append(
@@ -102,13 +102,13 @@ class Adapter(BaseAdapter):
                         "cdn_base_url": acc.cdn_base_url,
                     }
                 )
-        elif self.weixin_config.weixin_token:
+        elif self.weixin_config.wechatclaw_token:
             accounts.append(
                 {
-                    "account_id": self.weixin_config.weixin_account_id,
-                    "token": self.weixin_config.weixin_token,
-                    "base_url": self.weixin_config.weixin_base_url,
-                    "cdn_base_url": self.weixin_config.weixin_cdn_base_url,
+                    "account_id": self.weixin_config.wechatclaw_account_id,
+                    "token": self.weixin_config.wechatclaw_token,
+                    "base_url": self.weixin_config.wechatclaw_base_url,
+                    "cdn_base_url": self.weixin_config.wechatclaw_cdn_base_url,
                 }
             )
 
@@ -119,10 +119,10 @@ class Adapter(BaseAdapter):
         base_url = account["base_url"]
         token = account["token"]
         cdn_base_url = account["cdn_base_url"]
-        poll_timeout = self.weixin_config.weixin_poll_timeout
-        max_failures = self.weixin_config.weixin_max_consecutive_failures
-        backoff_delay = self.weixin_config.weixin_backoff_delay
-        reconnect_interval = self.weixin_config.weixin_reconnect_interval
+        poll_timeout = self.weixin_config.wechatclaw_poll_timeout
+        max_failures = self.weixin_config.wechatclaw_max_consecutive_failures
+        backoff_delay = self.weixin_config.wechatclaw_backoff_delay
+        reconnect_interval = self.weixin_config.wechatclaw_reconnect_interval
 
         bot = Bot(
             self,
@@ -341,7 +341,7 @@ class Adapter(BaseAdapter):
             endpoint="ilink/bot/sendmessage",
             body=body,
             token=token,
-            timeout_ms=self.weixin_config.weixin_api_timeout,
+            timeout_ms=self.weixin_config.wechatclaw_api_timeout,
         )
 
     async def _send_typing_api(
